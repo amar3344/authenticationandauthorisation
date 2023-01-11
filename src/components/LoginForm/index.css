@@ -1,0 +1,73 @@
+.react-app {
+  min-height: 100vh;
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.829);
+}
+
+.nxt-trend-container {
+  background-color: rgba(255, 255, 255, 0.986);
+  width: 70%;
+  min-height: 100vh;
+  max-height: 100%;
+  padding: 30px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nxt-trend-image {
+  max-width: 50%;
+  min-width: 400px;
+  background-size: cover;
+}
+
+.website-logo {
+  width: 150px;
+  display: flex;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.nxt-trend-container form {
+  min-width: 250px;
+  height: 300px;
+  box-shadow: 0px 2px 2px rgb(112, 107, 107);
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+}
+
+.input-container input {
+  background-color: #e6f6ff;
+  padding: 10px;
+  border: none;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.input-container label {
+  font-size: 15px;
+  color: #475569;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.login-button {
+  margin: 10px;
+  color: #fff;
+  background-color: #0b69ff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}

@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto';
+}
+
+.clothes-image {
+  max-width: 400px;
+  min-width: 250px;
+  max-height: 400px;
+  min-height: 250px;
+  padding: 20px;
+  background-size: cover;
+}
+
+.home-heading {
+  font-weight: bold;
+  color: #1e293b;
+}
+
+.home-nxt-trend-container div {
+  width: 50%;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.home-nxt-trend-container p {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.home-nxt-trend-container button {
+  background-color: #0967d2;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.home-nxt-trend-container button:hover {
+  background-color: #0b69ff;
+}
