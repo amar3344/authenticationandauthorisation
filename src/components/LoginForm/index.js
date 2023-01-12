@@ -8,7 +8,7 @@ const LoginForm = () => {
 
   const onSubmitForm = async e => {
     e.preventDefault()
-    const userDetails = {name, password}
+    const userDetails = {userName: name, userPassword: password}
     const url = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST',

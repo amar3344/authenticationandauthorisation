@@ -19,9 +19,10 @@
 }
 
 .nxt-trend-image {
-  max-width: 50%;
-  min-width: 400px;
+  min-width: calc(100% - 10%);
   background-size: cover;
+  max-width: 300px;
+  margin: 0px 20px;
 }
 
 .website-logo {

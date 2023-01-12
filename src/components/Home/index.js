@@ -1,7 +1,7 @@
 import './index.css'
 
 const Home = () => (
-  <div className="react-app">
+  <div className="home-react-app">
     <div className="home-nxt-trend-container">
       <div>
         <h1 className="home-heading">Clothes That Get You Noticed</h1>
