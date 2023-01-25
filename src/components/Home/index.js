@@ -1,3 +1,5 @@
+import {withRouter} from 'react-router-dom'
+
 import './index.css'
 
 const Home = () => (
@@ -25,4 +27,4 @@ const Home = () => (
   </div>
 )
 
-export default Home
+export default withRouter(Home)

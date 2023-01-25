@@ -1,24 +1,14 @@
+import {Redirect} from 'react-router-dom'
 import {useState} from 'react'
+import Cookies from 'js-cookie'
 
 import './index.css'
 
 const LoginForm = () => {
   const [name, setName] = useState('')
-  const [password, setPassword] = useState('')
-
-  const onSubmitForm = async e => {
-    e.preventDefault()
-    const userDetails = {userName: name, userPassword: password}
-    const url = 'https://apis.ccbp.in/login'
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(userDetails),
-    }
-
-    const res = await fetch(url, options)
-    const data = await res.json()
-    console.log(data)
-  }
+  const [passwords, setPassword] = useState('')
+  const [error, setError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const getUserName = e => {
     setName(e.target.value)
@@ -26,6 +16,37 @@ const LoginForm = () => {
 
   const getPassword = e => {
     setPassword(e.target.value)
+  }
+
+  const getSubmitFormSuccess = token => {
+    setError(false)
+    //const {history} = props
+
+    const jwtToken = token
+    Cookies.set('jwtToken', jwtToken, {expires: 1})
+  }
+
+  const getFailureForm = data => {
+    setError(true)
+    setErrorMessage(data.error_msg)
+  }
+
+  const onSubmitForm = async e => {
+    e.preventDefault()
+    const userDetails = {username: name, password: passwords}
+    const url = 'https://apis.ccbp.in/login'
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(userDetails),
+    }
+    const res = await fetch(url, options)
+    const data = await res.json()
+
+    if (res.ok === true) {
+      getSubmitFormSuccess(data.jwt_token)
+    } else {
+      getFailureForm(data)
+    }
   }
 
   return (
@@ -59,7 +80,7 @@ const LoginForm = () => {
             <input
               type="password"
               id="password"
-              value={password}
+              value={passwords}
               placeholder="PASSWORD"
               onChange={getPassword}
             />
@@ -67,6 +88,7 @@ const LoginForm = () => {
           <button type="submit" className="login-button">
             Login
           </button>
+          {error && <p className="error-message">{errorMessage}</p>}
         </form>
       </div>
     </div>

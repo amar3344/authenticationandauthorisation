@@ -72,3 +72,9 @@
   border-radius: 5px;
   padding: 10px;
 }
+
+.error-message {
+  font-size: 10px;
+  color: red;
+  margin: 0px;
+}
