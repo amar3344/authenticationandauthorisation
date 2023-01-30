@@ -1,1 +1,41 @@
-/* Write your CSS code here */
+.home-header {
+  width: 100%;
+  height: 50px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-links {
+  list-style-type: none;
+  display: flex;
+}
+
+.home-header img {
+  width: 200px;
+  background-size: cover;
+}
+
+.home-header li {
+  padding: 0px 20px;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.log-out-button {
+  border: none;
+  border-radius: 5px;
+  background-color: #0967d2;
+  padding: 10px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.log-out-button:hover {
+  background-color: #ff0b37;
+}
