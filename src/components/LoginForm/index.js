@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import {withRouter} from 'react-router-dom'
-import Cookies from 'js-cookie'
 
 import './index.css'
 
@@ -21,8 +20,6 @@ const LoginForm = props => {
   const getSubmitFormSuccess = token => {
     console.log(token)
     setError(false)
-    const jwtToken = token
-    Cookies.set('jwtToken', jwtToken, {expires: 1})
     const {history} = props
     console.log(history)
     history.replace('/')
