@@ -1,5 +1,6 @@
 import {useState} from 'react'
-import {withRouter} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 import './index.css'
 
@@ -8,6 +9,11 @@ const LoginForm = props => {
   const [passwords, setPassword] = useState('')
   const [error, setError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+
+  const jwtToken = Cookies.get('jwt_token')
+  if (jwtToken !== undefined) {
+    return <Redirect to="/" />
+  }
 
   const getUserName = e => {
     setName(e.target.value)
@@ -18,11 +24,12 @@ const LoginForm = props => {
   }
 
   const getSubmitFormSuccess = token => {
+    Cookies.set('jwt_token', token, {expires: 1})
     console.log(token)
     setError(false)
     const {history} = props
     console.log(history)
-    history.replace('/')
+    return history.replace('/')
   }
 
   const getFailureForm = data => {
@@ -40,6 +47,7 @@ const LoginForm = props => {
     }
     const res = await fetch(url, options)
     const data = await res.json()
+    console.log(data)
 
     if (res.ok === true) {
       getSubmitFormSuccess(data.jwt_token)
@@ -94,4 +102,4 @@ const LoginForm = props => {
   )
 }
 
-export default withRouter(LoginForm)
+export default LoginForm
