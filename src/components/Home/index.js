@@ -1,5 +1,3 @@
-import {withRouter} from 'react-router-dom'
-
 import './index.css'
 import Header from '../Header'
 
@@ -32,4 +30,4 @@ const Home = () => (
   </div>
 )
 
-export default withRouter(Home)
+export default Home

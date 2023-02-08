@@ -1,49 +1,67 @@
-import {Link, withRouter} from 'react-router-dom'
-import Cookies from 'js-cookie'
-
 import './index.css'
 
-const Header = props => {
-  const onClickLogout = () => {
-    Cookies.remove('jwt_token')
-    const {history} = props
-    return history.replace('/login')
-  }
+const Header = () => (
+  <nav className="nav-header">
+    <div className="nav-content">
+      <div className="nav-bar-mobile-logo-container">
+        <img
+          className="website-logo"
+          src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
+          alt="website logo"
+        />
 
-  return (
-    <div className="home-header">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
-        alt="website logo"
-      />
-      <ul className="home-links">
-        <li>
-          <Link className="nav-links" to="/">
-            Home
-          </Link>
+        <button type="button" className="nav-mobile-btn">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-log-out-img.png"
+            alt="nav logout"
+            className="nav-bar-img"
+          />
+        </button>
+      </div>
+
+      <div className="nav-content nav-bar-large-container">
+        <img
+          className="website-logo"
+          src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png"
+          alt="website logo"
+        />
+        <ul className="nav-menu">
+          <li className="nav-menu-item">Home</li>
+          <li className="nav-menu-item">Products</li>
+          <li className="nav-menu-item">Cart</li>
+        </ul>
+        <button type="button" className="logout-desktop-btn">
+          Logout
+        </button>
+      </div>
+    </div>
+    <div className="nav-menu-mobile">
+      <ul className="nav-menu-list-mobile">
+        <li className="nav-menu-item-mobile">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-home-icon.png"
+            alt="nav home"
+            className="nav-bar-img"
+          />
         </li>
-        <li>
-          <Link className="nav-links" to="/products">
-            Products
-          </Link>
+
+        <li className="nav-menu-item-mobile">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-products-icon.png"
+            alt="nav products"
+            className="nav-bar-img"
+          />
         </li>
-        <li>
-          <Link className="nav-links" to="/cart">
-            Cart
-          </Link>
-        </li>
-        <li>
-          <button
-            type="button"
-            onClick={onClickLogout}
-            className="nav-links log-out-button"
-          >
-            Log out
-          </button>
+
+        <li className="nav-menu-item-mobile">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-cart-icon.png"
+            alt="nav cart"
+            className="nav-bar-img"
+          />
         </li>
       </ul>
     </div>
-  )
-}
-
-export default withRouter(Header)
+  </nav>
+)
+export default Header
